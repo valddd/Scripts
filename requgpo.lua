@@ -131,7 +131,7 @@ end
 local GuiName = "VHUBPremium2022"
 
 function VHUB:CreateWindow(title, gameName, intro)
-    title = title or "<font color=\"#1CB2F5\">VHUB Premium</font>"
+    title = title or "<font color=\"#F51C4D\">VHUB Premium</font>"
     gameName = gameName or "N/A"
 
     for _, v in pairs(CoreGui:GetChildren()) do
