@@ -1,5 +1,5 @@
 
-local VHUB = {}
+local VHub = {}
 
 warn("Preparing UI...")
 
@@ -94,7 +94,7 @@ function Animate:CreateGradient(object)
     UIGradient.Parent = object
 end
 
-function VHUB:DraggingEnabled(frame, parent)
+function VHub:DraggingEnabled(frame, parent)
     parent = parent or frame
 
     local dragging = false
@@ -128,10 +128,10 @@ function VHUB:DraggingEnabled(frame, parent)
     end)
 end
 
-local GuiName = "VHUBPremium2022"
+local GuiName = "VHubPremium2022"
 
-function VHUB:CreateWindow(title, gameName, intro)
-    title = title or "<font color=\"#F51C4D\">VHUB Premium</font>"
+function VHub:CreateWindow(title, gameName, intro)
+    title = title or "<font color=\"#F51C4D\">VHub Premium</font>"
     gameName = gameName or "N/A"
 
     for _, v in pairs(CoreGui:GetChildren()) do
@@ -154,18 +154,18 @@ function VHUB:CreateWindow(title, gameName, intro)
         Logo = "rbxassetid://6705376362"
     }
 
-    table.insert(VHUB, title)
+    table.insert(VHub, title)
 
-    function VHUB:SetTheme(theme, color3)
+    function VHub:SetTheme(theme, color3)
         themes[theme] = color3
     end
 
-    local VHUBGui = Instance.new("ScreenGui")
+    local VHubGui = Instance.new("ScreenGui")
 
     if intro == true then
         local Logo = Instance.new("ImageLabel")
         
-        Logo.Parent = VHUBGui
+        Logo.Parent = VHubGui
         Logo.AnchorPoint = Vector2.new(0.5, 0.5)
         Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Logo.BackgroundTransparency = 1.000
@@ -221,7 +221,7 @@ function VHUB:CreateWindow(title, gameName, intro)
     UIListLayout.Padding = UDim.new(0, 8)
     
     CurrentAlert.Name = "NotiContainer"
-    CurrentAlert.Parent = VHUBGui
+    CurrentAlert.Parent = VHubGui
     CurrentAlert.AnchorPoint = Vector2.new(1, 1)
     CurrentAlert.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CurrentAlert.BackgroundTransparency = 1.000
@@ -229,7 +229,7 @@ function VHUB:CreateWindow(title, gameName, intro)
     CurrentAlert.Size = UDim2.new(1, -10, 1, -10)
     CurrentAlert.ZIndex = 9
 
-    function VHUB:AddNoti(header, message, duration, buttonEnable, callback)
+    function VHub:AddNoti(header, message, duration, buttonEnable, callback)
         header = header or "Announcement"
         message = message or "Nil"
         duration = duration or 120
@@ -444,7 +444,7 @@ function VHUB:CreateWindow(title, gameName, intro)
         end)
     end -- final
 
-    function VHUB:ToggleUI()
+    function VHub:ToggleUI()
         if Container.Visible == true then
             Utility:TweenObject(UIScale, {Scale = 0.95}, 0.25)
             wait(0.25)
@@ -455,14 +455,14 @@ function VHUB:CreateWindow(title, gameName, intro)
         end
     end
 
-    VHUB:DraggingEnabled(Header, Container)
+    VHub:DraggingEnabled(Header, Container)
 
-    VHUBGui.Name = GuiName
-    VHUBGui.Parent = CoreGui
-    VHUBGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    VHubGui.Name = GuiName
+    VHubGui.Parent = CoreGui
+    VHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     Container.Name = "Container"
-    Container.Parent = VHUBGui
+    Container.Parent = VHubGui
     Container.AnchorPoint = Vector2.new(0.5, 0.5)
     Container.BackgroundColor3 = themes.Container
     Objects[Container] = "Container"
@@ -2270,4 +2270,4 @@ function VHUB:CreateWindow(title, gameName, intro)
     return Tabs
 end
 
-return VHUB
+return VHub
