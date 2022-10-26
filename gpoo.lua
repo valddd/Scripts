@@ -596,6 +596,7 @@ function Tween2(t, cb)
             tween:Play()
             while (done == false) do
                 SetEN("Noclip", "Tween", true)
+                SetEN("Nodrown", "Tween", true)
                 if not( game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and
                 game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").Health > 0 and
                 game.Players.LocalPlayer.Character.Parent == game.Workspace.PlayerCharacters and
@@ -980,11 +981,13 @@ local lf = Section2:CreateToggle("Level Farm", {Toggled=Settings.Farm,Descriptio
     Settings.Farm = state
     SetEN("Noclip", "Farm", state)
     SetEN("NoFallDame","Farm",state)
+    SetEN("Nodrown", "Farm", state)
 end)
 
 local olf = Section2:CreateToggle("1 Click Level Farm", {Toggled=Settings.OneClick,Description = "Auto Farm Beli (achète des armes et commence a farm les levels)"}, function(state)
     SetEN("Noclip", "OneClick", state)
     SetEN("NoFallDame","OneClick",state)
+    SetEN("Nodrown", "OneClick", state)
     Settings.OneClick = state
 end)
 Section2:CreateToggle("Auto Buso Quest", {Toggled=Settings.AutoBusoQuest,Description = "Doit être activé avec Level Farm"}, function(state)
